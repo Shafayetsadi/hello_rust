@@ -7,8 +7,11 @@ fn main() {
 
     let secret_number: i32 = rand::thread_rng()
         .gen_range(1..=10); // ..= -> inclusive range
+    let mut win: bool = false;
 
-    loop {
+    println!("You have 3 chances to guess the number!");
+
+    for _ in 1..=3 {
         println!("Enter your guess: ");
 
         let mut guess: String = String::new(); // mutable variable with new instance of String
@@ -31,12 +34,14 @@ fn main() {
             Ordering::Less => { println!("Too small!") }
             Ordering::Equal => {
                 println!("You got it!");
+                win = true;
                 break;
             }
             Ordering::Greater => { println!("Too big!") }
         }
     }
 
-    println!("The secret number is: {}", secret_number);
-
+    if !win {
+        println!("You lose! The secret number is: {}", secret_number);
+    }
 }
