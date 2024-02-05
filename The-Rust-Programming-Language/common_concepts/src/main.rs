@@ -19,7 +19,7 @@ fn main() {
     // Data Types
     let mut _num: i8 = 42;
     _num += 1;
-    let _num : u8 = 42;
+    let _num: u8 = 42;
     /*
     Integer Types:
     * Signed: i8, i16, i32, i64, i128, isize
@@ -27,15 +27,15 @@ fn main() {
     */
 
     // Literals
+    /*
+    In rust, we can use _ to improve readability. It has no effect on the
+    value of numeric literals.
+    */
     let _decimal = 10_000; // 10,000
     let _hex = 0xff; // 255
     let _octal = 0o77; // 63
     let _binary = 0b1111_0000; // 240
     let _byte = b'A'; // 65
-    /*
-    In rust, we can use _ to improve readability. It has no effect on the
-    value of numeric literals.
-    */
 
     // Floating-Point Types
     let _x = 2.0; // f64
@@ -88,7 +88,8 @@ fn main() {
     */
     let _x = 5; // statement
     let _y = x + 5; // expression inside a statement
-    let _y = { // block
+    let _y = {
+        // block
         let x = 3;
         x + 1 // expression
     };
@@ -97,6 +98,68 @@ fn main() {
     hello();
     hello_name("Shafayet");
     println!("The sum of 5 and 10 is: {}", add(5, 10));
+
+    // Control Flow
+    let number: i32 = 5;
+    if number < 5 {
+        println!("The number is less than 5");
+    } else if number > 5 {
+        println!("The number is greater than 5");
+    } else {
+        println!("The number is 5");
+    }
+
+    let condition = true;
+    let number: i32 = if condition { 5 } else { 6 };
+    println!("The value of number is: {}", number);
+
+    // Loop
+    let mut counter: i32 = 0;
+    let result: i32 = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter * 2; // break with a value
+        }
+    };
+    println!("The result is: {}", result);
+
+    counter = 0;
+    loop {
+        counter += 1;
+        if counter%2 == 0{
+            continue;
+        }
+        if counter >= 10 {
+            break;
+        }
+        println!("The value of counter is: {}", counter);
+
+    }
+
+    // loop with a label
+    'outer: loop {
+        println!("Entered the outer loop");
+        'inner: loop {
+            println!("Entered the inner loop");
+            break 'outer; // break the outer loop
+        }
+        println!("This point will never be reached");
+
+    }
+    let mut number: i32 = 0;
+    while number < 5 {
+        println!("The value of number is: {}", number);
+        number += 1;
+    }
+    let arr: [i32; 5] = [10, 20, 30, 40, 50];
+    for element in arr.iter() { // iter() returns an iterator
+        print!("{} ", element);
+    }
+    println!();
+    for number in (1..5).rev() {
+        print!("{}! ", number); // 4! 3! 2! 1!
+    }
+    println!();
 }
 
 fn hello() {
