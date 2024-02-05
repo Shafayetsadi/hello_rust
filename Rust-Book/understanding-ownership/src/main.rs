@@ -18,7 +18,7 @@ fn main() {
 
     let s1 = String::from("hello");
     let _s2 = s1; // s1 is moved to s2, s1 -> not valid -> only one owner at a time
-    // println!("{}, world!", s1); // error: value borrowed here after move
+                  // println!("{}, world!", s1); // error: value borrowed here after move
 
     let _s3 = _s2.clone(); // s2 is cloned to s3, s2 is still valid
     println!("{}, world!", _s2); // s2 is still valid
@@ -67,7 +67,6 @@ fn main() {
     let hello = &str[0..5];
     let world = &str[7..12];
     println!("{} {}", hello, world);
-
 }
 
 fn takes_ownership(str: String) {
@@ -98,8 +97,10 @@ fn length(str: &String) -> usize {
 
 fn first_word(s: &String) -> usize {
     let bytes = s.as_bytes(); // convert string to array of bytes
-    for (i, &byte) in bytes.iter().enumerate() { // iterate over the array of bytes
-        if byte == b' ' { // if the byte is a space
+    for (i, &byte) in bytes.iter().enumerate() {
+        // iterate over the array of bytes
+        if byte == b' ' {
+            // if the byte is a space
             return i; // return the index
         }
     }

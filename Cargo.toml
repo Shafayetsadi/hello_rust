@@ -1,4 +1,4 @@
-workspace = { members = ["The-Rust-Programming-Language/guessing_game"] }
+workspace = { members = [ "The-Rust-Programming-Language/common_concepts","The-Rust-Programming-Language/guessing_game", "The-Rust-Programming-Language/structure", "The-Rust-Programming-Language/understanding-ownership"] }
 [package]
 name = "hello_rust"
 version = "0.1.0"

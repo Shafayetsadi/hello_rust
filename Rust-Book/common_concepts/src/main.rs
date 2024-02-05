@@ -126,14 +126,13 @@ fn main() {
     counter = 0;
     loop {
         counter += 1;
-        if counter%2 == 0{
+        if counter % 2 == 0 {
             continue;
         }
         if counter >= 10 {
             break;
         }
         println!("The value of counter is: {}", counter);
-
     }
 
     // loop with a label
@@ -144,7 +143,6 @@ fn main() {
             break 'outer; // break the outer loop
         }
         println!("This point will never be reached");
-
     }
     let mut number: i32 = 0;
     while number < 5 {
@@ -152,7 +150,8 @@ fn main() {
         number += 1;
     }
     let arr: [i32; 5] = [10, 20, 30, 40, 50];
-    for element in arr.iter() { // iter() returns an iterator
+    for element in arr.iter() {
+        // iter() returns an iterator
         print!("{} ", element);
     }
     println!();
